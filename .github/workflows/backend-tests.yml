@@ -6,7 +6,7 @@ on:
     pull_request:
         branches: ["main"]
 jobs:
-    backed-testsd:
+    backend-tests:
         runs-on: ubuntu-latest
 
         services:
@@ -34,6 +34,10 @@ jobs:
               with:
                 distribution: 'temurin'
                 java-version: '21'
+                
+            - name: Install Maven
+              run: sudo apt-get update && sudo apt-get install -y maven
+
 
             - name: Run Tests
               working-directory: blogger-backend/blogger
